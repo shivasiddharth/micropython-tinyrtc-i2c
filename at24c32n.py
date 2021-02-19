@@ -59,3 +59,7 @@ class AT24C32N(object):
         for i in range(partial, len(buf), self.bpp):
             self.i2c.writeto_mem(self.i2c_addr, addr+i-partial, buf[i:i+self.bpp], addrsize=16)
             time.sleep_ms(5)
+    def wipe(self):
+        buf = b'\xff' * 32
+        for i in range(128):
+            self.write(i*32, buf)

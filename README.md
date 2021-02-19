@@ -214,9 +214,7 @@ b'0000000000000000000000000000000011111111111111111111111111111111'
 b'00000000000000000000000000000abcdef11111111111111111111111111111'
 
 # fill entire eeprom with 0xFF
->>> buf = b'\xff' * 32
->>> for i in range(128):
-...     eeprom.write(i*32, buf)
+>>> eeprom.wipe()    
 
 # show page boundaries
 >>> for i in range(128):
