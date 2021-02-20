@@ -24,12 +24,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-# AT24C32A, 32K (32768 kbit / 4 KB), 128 pages, 32 bytes per page, i2c addr 0x50
+# For 4KB EEPROMS.
+# EEPROMS from different manufacturers have different Page and Bytes per page numbers. Get these numbers from your EEPROM manufacturer's datasheet and change the values here.
 
 import time
 
-class AT24C32N(object):
-    """Driver for the AT24C32N 32K EEPROM."""
+class 24C32(object):
 
     def __init__(self, i2c, i2c_addr=0x50, pages=128, bpp=32):
         self.i2c = i2c
