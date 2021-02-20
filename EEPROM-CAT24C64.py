@@ -24,14 +24,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-# For 4KB EEPROMS.
+# For 8KB EEPROMS.
 # EEPROMS from different manufacturers have different Page and Bytes per page numbers. Get these numbers from your EEPROM manufacturer's datasheet and change the values here.
 
 import time
 
-class 24C32(object):
+class CAT24C64(object):
 
-    def __init__(self, i2c, i2c_addr=0x50, pages=128, bpp=32):
+    def __init__(self, i2c, i2c_addr=0x50, pages=128, bpp=64):
         self.i2c = i2c
         self.i2c_addr = i2c_addr
         self.pages = pages
@@ -60,6 +60,6 @@ class 24C32(object):
             self.i2c.writeto_mem(self.i2c_addr, addr+i-partial, buf[i:i+self.bpp], addrsize=16)
             time.sleep_ms(5)
     def wipe(self):
-        buf = b'\xff' * 32
+        buf = b'\xff' * 64
         for i in range(128):
-            self.write(i*32, buf)
+            self.write(i*64, buf)
