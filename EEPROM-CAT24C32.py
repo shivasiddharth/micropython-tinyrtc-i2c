@@ -31,7 +31,7 @@ import time
 
 class CAT24C32(object):
 
-    def __init__(self, i2c, i2c_addr=0x50, pages=128, bpp=32):
+    def __init__(self, i2c, i2c_addr, pages=128, bpp=32):
         self.i2c = i2c
         self.i2c_addr = i2c_addr
         self.pages = pages
